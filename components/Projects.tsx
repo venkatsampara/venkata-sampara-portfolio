@@ -40,7 +40,7 @@ const Projects = () => {
     ,
     {
       title: 'Vibe Coder',
-      period: 'MAR 2025 - JUN 2025',
+      period: 'MAR 2025 - JUL 2025',
       description: 'A creative coding playground and deployment pipeline for interactive web experiences — built to prototype visualizations, generative art and micro-interactions quickly.',
       technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Vercel', 'Three.js'],
       accomplishments: [
