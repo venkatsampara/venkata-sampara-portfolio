@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="text-center">
           <div className="text-2xl font-bold mb-4">Venkat S</div>
           <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-            Senior .NET Full Stack Developer with 17+ years of experience in delivering 
+            Senior .NET Full Stack Developer/Architect with 19+ years of experience in delivering 
             enterprise-grade applications and solutions.
           </p>
           
