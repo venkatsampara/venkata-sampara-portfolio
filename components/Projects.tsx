@@ -1,124 +1,130 @@
 // components/Projects.tsx
-const Projects = () => {
-  const featuredProjects = [
-    {
-      title: 'CryptoConverter',
-      period: 'JAN 2024 - JAN 2025',
-      description: 'Greenfield development of a Crypto Coin Sales and Purchase Application enabling end users to buy/sell crypto coins and convert to local currency.',
-      technologies: ['.Net Core', 'Azure', 'ReactJs', 'MicroServices', 'Azure SQL'],
-      accomplishments: [
-        'Integrated blockchain technology for secure transactions',
-        'Real-time data visualization and automated currency conversion',
-        'Bank API integration for local currency transfers'
-      ],
-      image: '/crypto-converter.jpg'
-    },
-    {
-      title: 'Billing Engine',
-      period: 'DEC 2022 - DEC 2023',
-      description: 'Infrastructure systems to collect VM utilization data and process billing information.',
-      technologies: ['C#.NET', 'AWS', 'MicroServices', 'RDS', 'MSSQL'],
-      accomplishments: [
-        'Designed complete billing related applications',
-        'Improved application stability and monitoring',
-        'Worked with change and build teams for enhancements'
-      ],
-      image: '/billing-engine.jpg'
-    },
-    {
-      title: 'Enterprise Self-Serve Portal',
-      period: 'SEP 2018 - OCT 2022',
-      description: 'Telecom company integrated business administrative portal for managing business accounts and services.',
-      technologies: ['MVC5', 'C#', 'ReactJs', 'Redis', 'Hangfire'],
-      accomplishments: [
-        '24/7 production support and monitoring',
-        'Developed automation scripts for support team',
-        'Proactive issue identification and resolution'
-      ],
-      image: '/telecom-portal.jpg'
-    }
-    ,
-    {
-      title: 'Vibe Coder',
-      period: 'MAR 2025 - JUN 2025',
-      description: 'A creative coding playground and deployment pipeline for interactive web experiences — built to prototype visualizations, generative art and micro-interactions quickly.',
-      technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Vercel', 'Three.js'],
-      accomplishments: [
-        'Built reusable component library for rapid prototyping',
-        'Implemented server-side rendering and optimized bundle sizes',
-        'Deployed CI/CD pipeline for instant preview environments on each PR'
-      ],
-      image: '/vibe-coder.jpg'
-    }
-  ]
+import { projects, categoryColors } from '@/lib/projects-data'
 
+const Projects = () => {
   return (
     <section id="projects" className="section-padding bg-white">
       <div className="container-custom">
-        <h2 className="text-4xl font-bold text-center mb-16 text-gray-900">
+        <h2 className="text-4xl font-bold text-center mb-4 text-gray-900">
           Featured Projects
         </h2>
-        
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
-          {featuredProjects.map((project, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-              <div className="h-48 bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                <div className="text-white text-4xl font-bold opacity-20">
-                  {project.title.split(' ')[0]}
-                </div>
-              </div>
-              
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-3">
-                  <h3 className="text-xl font-bold text-gray-900">{project.title}</h3>
-                  <span className="text-sm text-primary bg-primary/10 px-2 py-1 rounded">
-                    {project.period}
+        <p className="text-center text-gray-600 mb-16 max-w-2xl mx-auto">
+          Enterprise apps, AI/ML solutions, AIOps platforms, and healthcare systems —
+          delivered end-to-end for clients in India and worldwide.
+        </p>
+
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+          {projects.map((project) => {
+            const colors = categoryColors[project.category] ?? {
+              bg: 'bg-gray-100',
+              text: 'text-gray-700',
+            }
+
+            return (
+              <div
+                key={project.id}
+                className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300 flex flex-col"
+              >
+                {/* Card header */}
+                <div className="h-44 bg-gradient-to-br from-primary to-secondary flex items-center justify-center relative">
+                  <div className="text-white text-4xl font-bold opacity-20">
+                    {project.title.split(' ')[0]}
+                  </div>
+                  {/* Category badge */}
+                  <span
+                    className={`absolute top-3 right-3 text-xs font-semibold px-2.5 py-1 rounded-full ${colors.bg} ${colors.text}`}
+                  >
+                    {project.category}
                   </span>
                 </div>
-                
-                <p className="text-gray-600 mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-                
-                <div className="mb-4">
-                  <h4 className="font-semibold text-gray-900 mb-2">Technologies:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span 
-                        key={techIndex}
-                        className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+
+                <div className="p-6 flex flex-col flex-1">
+                  {/* Title + period */}
+                  <div className="flex justify-between items-start mb-3 gap-2">
+                    <h3 className="text-xl font-bold text-gray-900 leading-tight">
+                      {project.title}
+                    </h3>
+                    <span className="text-xs text-primary bg-primary/10 px-2 py-1 rounded whitespace-nowrap">
+                      {project.period}
+                    </span>
                   </div>
-                </div>
-                
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Key Accomplishments:</h4>
-                  <ul className="space-y-1">
-                    {project.accomplishments.map((accomplishment, accIndex) => (
-                      <li key={accIndex} className="text-sm text-gray-600 flex items-start gap-2">
-                        <div className="w-1 h-1 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                        {accomplishment}
-                      </li>
-                    ))}
-                  </ul>
+
+                  <p className="text-gray-600 mb-4 leading-relaxed text-sm">
+                    {project.description}
+                  </p>
+
+                  {/* Outcome / impact callout */}
+                  <div className="bg-green-50 border-l-4 border-green-500 p-3 rounded mb-4 text-sm text-green-800">
+                    <strong>Outcome:</strong> {project.outcome}
+                  </div>
+
+                  {/* Technologies */}
+                  <div className="mb-4">
+                    <h4 className="font-semibold text-gray-900 mb-2 text-sm">
+                      Technologies
+                    </h4>
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.technologies.map((tech) => (
+                        <span
+                          key={tech}
+                          className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Key accomplishments */}
+                  <div className="mt-auto">
+                    <h4 className="font-semibold text-gray-900 mb-2 text-sm">
+                      Key Accomplishments
+                    </h4>
+                    <ul className="space-y-1">
+                      {project.accomplishments.map((item, i) => (
+                        <li
+                          key={i}
+                          className="text-sm text-gray-600 flex items-start gap-2"
+                        >
+                          <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 flex-shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Trust fields */}
+                  {project.trustFields && (
+                    <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-gray-100">
+                      {project.trustFields.impact && (
+                        <span className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded">
+                          📈 {project.trustFields.impact}
+                        </span>
+                      )}
+                      {project.trustFields.reliability && (
+                        <span className="text-xs bg-green-50 text-green-700 px-2 py-1 rounded">
+                          🛡️ {project.trustFields.reliability}
+                        </span>
+                      )}
+                      {project.trustFields.automation && (
+                        <span className="text-xs bg-amber-50 text-amber-700 px-2 py-1 rounded">
+                          ⚡ {project.trustFields.automation}
+                        </span>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
-        
+
         <div className="text-center mt-12">
           <p className="text-gray-600 mb-4">
-            Want to see more projects? Check out my full portfolio
+            Looking for a developer to bring your next idea to life?
           </p>
-          <a
-            href="#contact"
-            className="btn-primary"
-          >
-            View Full Portfolio
+          <a href="#contact" className="btn-primary">
+            Discuss Your Project
           </a>
         </div>
       </div>

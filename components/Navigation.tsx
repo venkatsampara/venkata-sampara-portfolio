@@ -45,11 +45,11 @@ const Navigation = () => {
 
   const navItems = [
     { name: 'Home', href: '#home', icon: HomeIcon },
-    { name: 'About', href: '#about', icon: UserIcon },
-    { name: 'Skills', href: '#skills', icon: CodeIcon },
-    { name: 'Projects', href: '#projects', icon: ProjectIcon },
+    { name: 'About Me', href: '#about', icon: UserIcon },
+    { name: 'Technical Skills', href: '#skills', icon: CodeIcon },
+    { name: 'Featured Projects', href: '#projects', icon: ProjectIcon },
     { name: 'Experience', href: '#experience', icon: BriefcaseIcon },
-    { name: 'Contact', href: '#contact', icon: ContactIcon },
+    { name: 'Hire Me', href: '#contact', icon: ContactIcon },
   ]
 
   return (
@@ -129,7 +129,7 @@ const Navigation = () => {
                   className="block w-full bg-primary hover:bg-secondary text-white text-center font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
                   onClick={handleNavClick}
                 >
-                  Get In Touch
+                  Discuss Your Project
                 </a>
               </div>
             </div>
